@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dream Sneakers - магазин кроссовок для спорта, стиля и комфорта.">
+    <title>Dream Sneakers | Кроссовки для каждого шага</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header: logo, main navigation, theme switch and burger button -->
+    <header class="header" id="top">
+        <div class="container header__inner">
+            <a class="logo header__logo" href="#top">
+                <svg class="logo__mark" width="26" height="22" viewBox="0 0 26 22" aria-hidden="true">
+                    <path d="M1 11 L25 1 L13 21 L10 13 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                </svg>
+                <span class="logo__text">
+                    <span class="logo__name">Dream</span>
+                    <span class="logo__caption">Sneakers</span>
+                </span>
+            </a>
+
+            <nav class="nav header__nav" id="nav" aria-label="Основная навигация">
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="#catalog">Каталог</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#brand">О бренде</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#gallery">Галерея</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#faq">Вопросы</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" title="Переключить тему">
+                    <svg class="theme-toggle__icon theme-toggle__icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path>
+                    </svg>
+                    <svg class="theme-toggle__icon theme-toggle__icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                        <path d="M21 13a9 9 0 1 1-10-10 7 7 0 0 0 10 10z"></path>
+                    </svg>
+                </button>
+
+                <button class="button button--primary button--small header__cta" type="button" data-modal-open>
+                    Оставить заявку
+                </button>
+
+                <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero: main promo block -->
+        <section class="hero">
+            <div class="container hero__inner">
+                <div class="hero__content">
+                    <h1 class="hero__title">Кроссовки для каждого шага</h1>
+                    <p class="hero__text">
+                        Найди идеальную пару для спорта, стиля и комфорта. Оригинальные модели,
+                        честные размеры и доставка по всей России.
+                    </p>
+                    <div class="hero__actions">
+                        <button class="button button--primary" type="button" data-modal-open>Подобрать пару</button>
+                        <a class="button button--outline" href="#catalog">Коллекция</a>
+                    </div>
+                </div>
+
+                <div class="hero__media">
+                    <img class="hero__image" src="images/hero-sneaker.svg" alt="Кроссовки из новой коллекции" width="640" height="400">
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog: product cards laid out with CSS Grid -->
+        <section class="catalog" id="catalog">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-head__title section-head__title--underlined">Каталог</h2>
+                    <a class="section-head__link" href="#catalog">Смотреть все &rarr;</a>
+                </div>
+
+                <div class="catalog__grid">
+
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img class="product-card__image" src="images/product-1.svg" alt="Кроссовки Urban Classic" width="480" height="360">
+                        </div>
+                        <h3 class="product-card__title">Urban Classic</h3>
+                        <p class="product-card__description">
+                            Низкий силуэт из плотного текстиля. Спокойная база, которая сочетается
+                            почти с чем угодно.
+                        </p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">6 490 &#8381;</span>
+                            <button class="button button--small product-card__button" type="button">В корзину</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img class="product-card__image" src="images/product-2.svg" alt="Кроссовки Night Runner" width="480" height="360">
+                        </div>
+                        <h3 class="product-card__title">Night Runner</h3>
+                        <p class="product-card__description">
+                            Беговая модель с амортизирующей подошвой. Держит темп на длинных
+                            дистанциях и не натирает.
+                        </p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">8 900 &#8381;</span>
+                            <button class="button button--small product-card__button" type="button">В корзину</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img class="product-card__image" src="images/product-3.svg" alt="Кроссовки Fresh Mint" width="480" height="360">
+                        </div>
+                        <h3 class="product-card__title">Fresh Mint</h3>
+                        <p class="product-card__description">
+                            Летняя пара с сетчатым верхом. Легкая, дышащая, почти не чувствуется
+                            на ноге.
+                        </p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">7 250 &#8381;</span>
+                            <button class="button button--small product-card__button" type="button">В корзину</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img class="product-card__image" src="images/product-4.svg" alt="Кроссовки Pink Statement" width="480" height="360">
+                        </div>
+                        <h3 class="product-card__title">Pink Statement</h3>
+                        <p class="product-card__description">
+                            Яркая модель для тех, кто не любит прятаться. Кожаный верх и контрастная
+                            прошивка.
+                        </p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">9 700 &#8381;</span>
+                            <button class="button button--small product-card__button" type="button">В корзину</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img class="product-card__image" src="images/product-5.svg" alt="Кроссовки Desert Walk" width="480" height="360">
+                        </div>
+                        <h3 class="product-card__title">Desert Walk</h3>
+                        <p class="product-card__description">
+                            Замшевая пара песочного оттенка. Утепленная стелька и цепкая подошва
+                            для межсезонья.
+                        </p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">8 150 &#8381;</span>
+                            <button class="button button--small product-card__button" type="button">В корзину</button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img class="product-card__image" src="images/product-6.svg" alt="Кроссовки Court Blue" width="480" height="360">
+                        </div>
+                        <h3 class="product-card__title">Court Blue</h3>
+                        <p class="product-card__description">
+                            Баскетбольная классика в обновленной расцветке. Плотная фиксация
+                            голеностопа.
+                        </p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">7 990 &#8381;</span>
+                            <button class="button button--small product-card__button" type="button">В корзину</button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand: advantages of the store on a dark background -->
+        <section class="brand" id="brand">
+            <div class="brand__inner">
+                <div class="brand__content">
+                    <h2 class="brand__title">DreamSneakers &mdash; это не просто магазин</h2>
+
+                    <ul class="brand__list">
+                        <li class="benefit">
+                            <span class="benefit__number">01</span>
+                            <div class="benefit__body">
+                                <h3 class="benefit__title">Культура</h3>
+                                <p class="benefit__text">
+                                    Мы создаем сообщество, где кроссовки это образ жизни. Наши ивенты
+                                    и коллаборации объединяют ценителей уличной моды.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="benefit">
+                            <span class="benefit__number">02</span>
+                            <div class="benefit__body">
+                                <h3 class="benefit__title">Экспертиза</h3>
+                                <p class="benefit__text">
+                                    Каждая пара проходит проверку нашими экспертами. Мы знаем все
+                                    о технологиях брендов и особенностях каждой модели.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="benefit">
+                            <span class="benefit__number">03</span>
+                            <div class="benefit__body">
+                                <h3 class="benefit__title">Сервис</h3>
+                                <p class="benefit__text">
+                                    Подбираем размер по замерам стопы, отправляем заказ в день
+                                    оформления и меняем пару, если она не подошла.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="brand__media">
+                    <img class="brand__image" src="images/brand.svg" alt="Пара кроссовок из витрины магазина" width="640" height="720">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery: thumbnails swap the main image -->
+        <section class="gallery" id="gallery">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-head__title section-head__title--underlined">Галерея</h2>
+                    <span class="section-head__link">Нажмите на миниатюру</span>
+                </div>
+
+                <div class="gallery__body">
+                    <figure class="gallery__preview">
+                        <img class="gallery__image" id="galleryImage" src="images/product-1.svg" alt="Кроссовки Urban Classic" width="480" height="360">
+                        <figcaption class="gallery__caption" id="galleryCaption">Urban Classic</figcaption>
+                    </figure>
+
+                    <ul class="gallery__thumbs">
+                        <li class="gallery__thumb-item">
+                            <button class="gallery__thumb gallery__thumb--active" type="button" data-image="images/product-1.svg" data-caption="Urban Classic">
+                                <img src="images/product-1.svg" alt="Urban Classic" width="480" height="360">
+                            </button>
+                        </li>
+                        <li class="gallery__thumb-item">
+                            <button class="gallery__thumb" type="button" data-image="images/product-2.svg" data-caption="Night Runner">
+                                <img src="images/product-2.svg" alt="Night Runner" width="480" height="360">
+                            </button>
+                        </li>
+                        <li class="gallery__thumb-item">
+                            <button class="gallery__thumb" type="button" data-image="images/product-3.svg" data-caption="Fresh Mint">
+                                <img src="images/product-3.svg" alt="Fresh Mint" width="480" height="360">
+                            </button>
+                        </li>
+                        <li class="gallery__thumb-item">
+                            <button class="gallery__thumb" type="button" data-image="images/product-4.svg" data-caption="Pink Statement">
+                                <img src="images/product-4.svg" alt="Pink Statement" width="480" height="360">
+                            </button>
+                        </li>
+                        <li class="gallery__thumb-item">
+                            <button class="gallery__thumb" type="button" data-image="images/product-5.svg" data-caption="Desert Walk">
+                                <img src="images/product-5.svg" alt="Desert Walk" width="480" height="360">
+                            </button>
+                        </li>
+                        <li class="gallery__thumb-item">
+                            <button class="gallery__thumb" type="button" data-image="images/product-6.svg" data-caption="Court Blue">
+                                <img src="images/product-6.svg" alt="Court Blue" width="480" height="360">
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews -->
+        <section class="reviews" id="reviews">
+            <div class="container">
+                <h2 class="reviews__title">Реальные отзывы наших клиентов</h2>
+
+                <div class="reviews__grid">
+
+                    <article class="review-card">
+                        <p class="review-card__rating" aria-label="Оценка 5 из 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                        <blockquote class="review-card__text">
+                            Заказывала пару в подарок, привезли на следующий день. Размер сошелся
+                            по таблице замеров, коробка не помята, все честно.
+                        </blockquote>
+                        <footer class="review-card__author">
+                            <span class="review-card__avatar" aria-hidden="true">АК</span>
+                            <span class="review-card__info">
+                                <span class="review-card__name">Анна Ковалева</span>
+                                <span class="review-card__role">покупает второй год</span>
+                            </span>
+                        </footer>
+                    </article>
+
+                    <article class="review-card">
+                        <p class="review-card__rating" aria-label="Оценка 5 из 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                        <blockquote class="review-card__text">
+                            Долго выбирал беговые, консультант расспросил про пронацию и километраж
+                            и предложил три варианта. Взял Night Runner, за месяц ни одной мозоли.
+                        </blockquote>
+                        <footer class="review-card__author">
+                            <span class="review-card__avatar" aria-hidden="true">МС</span>
+                            <span class="review-card__info">
+                                <span class="review-card__name">Максим Соколов</span>
+                                <span class="review-card__role">любительский бег</span>
+                            </span>
+                        </footer>
+                    </article>
+
+                    <article class="review-card">
+                        <p class="review-card__rating" aria-label="Оценка 4 из 5">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                        <blockquote class="review-card__text">
+                            Пара пришла на полразмера меньше, обменяли без вопросов за свой счет.
+                            Единственное, курьер приехал ближе к вечеру, хотя обещали днем.
+                        </blockquote>
+                        <footer class="review-card__author">
+                            <span class="review-card__avatar" aria-hidden="true">ИЛ</span>
+                            <span class="review-card__info">
+                                <span class="review-card__name">Илья Лебедев</span>
+                                <span class="review-card__role">первый заказ</span>
+                            </span>
+                        </footer>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ accordion -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <h2 class="faq__title">Часто задаваемые вопросы</h2>
+
+                <ul class="accordion" id="accordion">
+                    <li class="accordion__item">
+                        <button class="accordion__button" type="button" aria-expanded="false">
+                            <span class="accordion__question">Как понять, какой размер заказывать?</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__panel">
+                            <p class="accordion__answer">
+                                На странице каждой модели есть таблица соответствия длины стопы и
+                                размера. Измерьте стопу вечером, стоя, и добавьте от 5 до 10 мм на
+                                запас. Если сомневаетесь между двумя размерами, напишите нам, подскажем
+                                по конкретной колодке.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="accordion__item">
+                        <button class="accordion__button" type="button" aria-expanded="false">
+                            <span class="accordion__question">Сколько идет доставка?</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__panel">
+                            <p class="accordion__answer">
+                                По Санкт-Петербургу курьер приезжает на следующий день после
+                                оформления. В другие города доставка занимает от двух до пяти дней в
+                                зависимости от региона.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="accordion__item">
+                        <button class="accordion__button" type="button" aria-expanded="false">
+                            <span class="accordion__question">Можно ли примерить перед покупкой?</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__panel">
+                            <p class="accordion__answer">
+                                Да, курьер ждет 15 минут, этого хватает на примерку двух пар. Если
+                                ничего не подошло, оплачивается только доставка.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="accordion__item">
+                        <button class="accordion__button" type="button" aria-expanded="false">
+                            <span class="accordion__question">Вы продаете оригинал?</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__panel">
+                            <p class="accordion__answer">
+                                Каждая пара проходит проверку до отправки. К заказу прикладываем
+                                чек и карточку проверки с подписью специалиста.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="accordion__item">
+                        <button class="accordion__button" type="button" aria-expanded="false">
+                            <span class="accordion__question">Как вернуть или обменять пару?</span>
+                            <span class="accordion__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion__panel">
+                            <p class="accordion__answer">
+                                В течение 14 дней, если обувь не носили на улице и сохранились
+                                коробка и бирки. Обмен на другой размер мы делаем за свой счет.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contacts: store details and the request form -->
+        <section class="contacts" id="contacts">
+            <div class="container contacts__inner">
+
+                <div class="contacts__info">
+                    <h2 class="contacts__title">Свяжитесь с нами</h2>
+                    <p class="contacts__text">
+                        Поможем подобрать размер, расскажем про наличие и посчитаем доставку.
+                        Пишите или звоните, отвечаем в рабочие часы.
+                    </p>
+
+                    <ul class="contacts__list">
+                        <li class="contact-item">
+                            <span class="contact-item__icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"></path>
+                                </svg>
+                            </span>
+                            <span class="contact-item__body">
+                                <span class="contact-item__label">Телефон</span>
+                                <a class="contact-item__value" href="tel:+79118057418">+7 (911) 805-74-18</a>
+                            </span>
+                        </li>
+
+                        <li class="contact-item">
+                            <span class="contact-item__icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                    <path d="m2 7 10 6 10-6"></path>
+                                </svg>
+                            </span>
+                            <span class="contact-item__body">
+                                <span class="contact-item__label">Email</span>
+                                <a class="contact-item__value" href="mailto:info@dreamsneakers.ru">info@dreamsneakers.ru</a>
+                            </span>
+                        </li>
+
+                        <li class="contact-item contact-item--accent">
+                            <span class="contact-item__icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="9"></circle>
+                                    <path d="M12 7v5l3 2"></path>
+                                </svg>
+                            </span>
+                            <span class="contact-item__body">
+                                <span class="contact-item__label">Часы работы</span>
+                                <span class="contact-item__value">Пн-Пт: 9:00 - 20:00</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-card contacts__form-card">
+                    <h3 class="form-card__title">Оставьте заявку</h3>
+                    <p class="form-card__subtitle">Свяжемся с вами в течение 15 минут</p>
+
+                    <form class="form" action="#" method="post">
+                        <div class="form__field">
+                            <label class="form__label" for="name">Ваше имя</label>
+                            <input class="form__input" id="name" name="name" type="text" placeholder="Ваше имя *" required>
+                        </div>
+
+                        <div class="form__field">
+                            <label class="form__label" for="phone">Телефон</label>
+                            <input class="form__input" id="phone" name="phone" type="tel" placeholder="Телефон *" required>
+                        </div>
+
+                        <div class="form__field">
+                            <label class="form__label" for="email">Email</label>
+                            <input class="form__input" id="email" name="email" type="email" placeholder="Email *" required>
+                        </div>
+
+                        <div class="form__field">
+                            <label class="form__label" for="message">Сообщение</label>
+                            <textarea class="form__input form__input--textarea" id="message" name="message" rows="4" placeholder="Ваше сообщение..."></textarea>
+                        </div>
+
+                        <label class="form__agreement">
+                            <input class="form__checkbox" type="checkbox" name="agreement" required>
+                            <span class="form__agreement-text">
+                                Согласен с <a class="form__agreement-link" href="#contacts">политикой конфиденциальности</a>
+                            </span>
+                        </label>
+
+                        <button class="button button--primary form__submit" type="submit">Отправить заявку</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__column footer__column--about">
+                <a class="logo logo--light" href="#top">
+                    <svg class="logo__mark" width="26" height="22" viewBox="0 0 26 22" aria-hidden="true">
+                        <path d="M1 11 L25 1 L13 21 L10 13 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="logo__text">
+                        <span class="logo__name">Dream</span>
+                        <span class="logo__caption">Sneakers</span>
+                    </span>
+                </a>
+                <p class="footer__text">
+                    Кроссовки для каждого шага. Найди идеальную пару для спорта, стиля и комфорта.
+                </p>
+                <ul class="socials">
+                    <li class="socials__item">
+                        <a class="socials__link" href="#top" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <circle cx="17.5" cy="6.5" r="1"></circle>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="socials__item">
+                        <a class="socials__link" href="#top" aria-label="Telegram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <path d="M21 4 3 11l6 2 2 6 4-5 4 4z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="socials__item">
+                        <a class="socials__link" href="#top" aria-label="ВКонтакте">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <path d="M3 8h3c.4 3 1.9 5.4 3.5 6.3V8h3v4.5c1.4-.3 2.9-2 3.4-4.5H21c-.6 2.6-2 4.6-3.4 5.6 1.6 1 3 2.6 3.4 4.4h-3.1c-.5-1.6-1.8-2.9-3.4-3.2V18h-2.8C7.6 18 4.2 14.2 3 8z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__column">
+                <h3 class="footer__heading">Навигация</h3>
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a class="footer__link" href="#catalog">Каталог</a></li>
+                    <li class="footer__list-item"><a class="footer__link" href="#brand">О бренде</a></li>
+                    <li class="footer__list-item"><a class="footer__link" href="#gallery">Галерея</a></li>
+                    <li class="footer__list-item"><a class="footer__link" href="#faq">Вопросы</a></li>
+                    <li class="footer__list-item"><a class="footer__link" href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__column">
+                <h3 class="footer__heading">Контакты</h3>
+                <p class="footer__text">
+                    Email: <a class="footer__link footer__link--plain" href="mailto:info@dreamsneakers.ru">info@dreamsneakers.ru</a><br>
+                    Телефон: <a class="footer__link footer__link--plain" href="tel:+79118057418">+7 (911) 805-74-18</a>
+                </p>
+                <button class="button button--outline-accent" type="button" data-modal-open>Написать нам</button>
+            </div>
+
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2025 Dream Sneakers. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Modal window with the request form -->
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="modal__overlay" data-modal-close></div>
+
+        <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal__close" type="button" aria-label="Закрыть окно" data-modal-close>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M6 6l12 12M18 6L6 18"></path>
+                </svg>
+            </button>
+
+            <h2 class="modal__title" id="modalTitle">Оставить заявку</h2>
+            <p class="modal__subtitle">Перезвоним в течение 15 минут и поможем с выбором</p>
+
+            <form class="form modal__form" id="modalForm">
+                <div class="form__field">
+                    <label class="form__label" for="modalName">Ваше имя</label>
+                    <input class="form__input" id="modalName" name="name" type="text" placeholder="Ваше имя *" required>
+                </div>
+
+                <div class="form__field">
+                    <label class="form__label" for="modalPhone">Телефон</label>
+                    <input class="form__input" id="modalPhone" name="phone" type="tel" placeholder="Телефон *" required>
+                </div>
+
+                <div class="form__field">
+                    <label class="form__label" for="modalComment">Комментарий</label>
+                    <textarea class="form__input form__input--textarea" id="modalComment" name="comment" rows="3" placeholder="Какая модель и размер интересуют"></textarea>
+                </div>
+
+                <button class="button button--primary form__submit" type="submit">Отправить</button>
+            </form>
+
+            <p class="modal__success" id="modalSuccess" hidden>
+                Заявка отправлена. Менеджер свяжется с вами в ближайшее время.
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <button class="scroll-top" id="scrollTop" type="button" aria-label="Наверх">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
