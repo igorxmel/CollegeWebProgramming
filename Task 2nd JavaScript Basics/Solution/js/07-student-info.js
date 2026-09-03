@@ -3,7 +3,7 @@
 
 const student = {
     name: "Егор Холкин",
-    group: "ИСП-41",
+    group: "ИС-42",
     course: 4
 };
 
