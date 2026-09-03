@@ -1,0 +1,79 @@
+erDiagram
+    brand ||--o{ product : "выпускает"
+    category ||--o{ product : "объединяет"
+    product ||--o{ product_size : "выпускается в размерах"
+    size ||--o{ product_size : "используется в"
+    product_size ||--o{ order_item : "попадает в позиции"
+    customer ||--o{ customer_order : "оформляет"
+    customer_order ||--o{ order_item : "состоит из"
+    customer ||--o{ review : "пишет"
+    product ||--o{ review : "получает"
+
+    brand {
+        int brand_id PK
+        varchar name
+        varchar country
+    }
+
+    category {
+        int category_id PK
+        varchar name
+    }
+
+    product {
+        int product_id PK
+        int brand_id FK
+        int category_id FK
+        varchar name
+        text description
+        decimal price
+        boolean is_active
+        datetime created_at
+    }
+
+    size {
+        int size_id PK
+        decimal eu_size
+        decimal us_size
+    }
+
+    product_size {
+        int product_size_id PK
+        int product_id FK
+        int size_id FK
+        int stock_quantity
+    }
+
+    customer {
+        int customer_id PK
+        varchar first_name
+        varchar last_name
+        varchar email
+        varchar phone
+        datetime created_at
+    }
+
+    customer_order {
+        int order_id PK
+        int customer_id FK
+        varchar status
+        varchar delivery_address
+        datetime created_at
+    }
+
+    order_item {
+        int order_item_id PK
+        int order_id FK
+        int product_size_id FK
+        int quantity
+        decimal unit_price
+    }
+
+    review {
+        int review_id PK
+        int product_id FK
+        int customer_id FK
+        int rating
+        text comment
+        datetime created_at
+    }
