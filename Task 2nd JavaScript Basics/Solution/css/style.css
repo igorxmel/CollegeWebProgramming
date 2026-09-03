@@ -1,0 +1,71 @@
+/* Minimal styles for the task list page.
+   All the actual work of this assignment happens in the js folder. */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 48px 20px;
+    background-color: #f4f4f6;
+    color: #15151a;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(21, 21, 26, 0.08);
+}
+
+.page__title {
+    margin: 0;
+    font-size: 28px;
+}
+
+.page__subtitle {
+    margin: 4px 0 28px;
+    color: #6c6c78;
+}
+
+.page__hint {
+    margin: 0 0 28px;
+    padding: 16px 20px;
+    background-color: #f4f4f6;
+    border-left: 3px solid #ec1c5f;
+    border-radius: 0 10px 10px 0;
+    font-size: 15px;
+}
+
+.page__list {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.page__list li {
+    margin-bottom: 8px;
+}
+
+code,
+kbd {
+    padding: 2px 6px;
+    background-color: #f0f0f4;
+    border-radius: 5px;
+    font-family: "Consolas", monospace;
+    font-size: 13px;
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 24px 12px;
+    }
+
+    .page {
+        padding: 24px 20px;
+    }
+}
