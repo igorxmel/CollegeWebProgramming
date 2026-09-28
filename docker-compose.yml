@@ -1,0 +1,52 @@
+# Поднимает MySQL 8 и Adminer для базы интернет-магазина «Dream Sneakers».
+#
+#   docker compose up -d      поднять
+#   docker compose down       остановить, база останется
+#   docker compose down -v    остановить и стереть базу, чтобы пересобрать с нуля
+#
+# После запуска Adminer доступен на http://localhost:8081
+# Сервер: db, пользователь: root, пароль: root, база: dream_sneakers
+#
+# Порты 3307 и 8081 взяты специально: репозиторий баз данных занимает 3306 и
+# 8080, так что обе базы можно держать поднятыми одновременно.
+#
+# В initdb уходят только schema.sql и data.sql. Файл queries.sql не
+# подключается намеренно: запросы выполняются руками в окне Adminer, это и есть
+# смысл работы.
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: college_web_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_general_ci
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - "./Task 5th SQL Queries/Solution/schema.sql:/docker-entrypoint-initdb.d/05-1-schema.sql:ro"
+      - "./Task 5th SQL Queries/Solution/data.sql:/docker-entrypoint-initdb.d/05-2-data.sql:ro"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  adminer:
+    image: adminer:latest
+    container_name: college_web_adminer
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
