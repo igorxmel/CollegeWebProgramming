@@ -1,5 +1,8 @@
 .claude/
 
+# Node.js dependencies, restored by npm install
+node_modules/
+
 # OS and editor junk
 Thumbs.db
 desktop.ini

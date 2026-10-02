@@ -1,0 +1,14 @@
+{
+  "name": "practice6",
+  "version": "1.0.0",
+  "description": "First HTTP server on Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "info": "node server-info.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
