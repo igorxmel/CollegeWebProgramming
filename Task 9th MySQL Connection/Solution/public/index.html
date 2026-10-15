@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>games</h1>
+<p class="count" id="count"></p>
+
+<ul class="list" id="list"></ul>
+
+<script>
+    fetch("/games")
+        .then((response) => response.json())
+        .then((games) => {
+            document.getElementById("count").textContent = games.length + " titles";
+
+            const list = document.getElementById("list");
+            for (const game of games) {
+                const item = document.createElement("li");
+
+                const title = document.createElement("h2");
+                title.textContent = game.title;
+
+                const meta = document.createElement("p");
+                meta.className = "meta";
+                meta.textContent = game.genre + "   " + game.release_year;
+
+                item.append(title, meta);
+                list.append(item);
+            }
+        });
+</script>
+
+</body>
+</html>
