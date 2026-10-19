@@ -1,0 +1,33 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "task1",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8932"],
+      "cwd": "Task 1st Responsive Layout with HTML5 and CSS3/Solution",
+      "port": 8932
+    },
+    {
+      "name": "task2",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8933"],
+      "cwd": "Task 2nd JavaScript Basics/Solution",
+      "port": 8933
+    },
+    {
+      "name": "task3",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8934"],
+      "cwd": "Task 3rd DOM Interactivity with JavaScript/Solution",
+      "port": 8934
+    },
+    {
+      "name": "task4",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8935"],
+      "cwd": "Task 4th Database Design/Solution",
+      "port": 8935
+    }
+  ]
+}
