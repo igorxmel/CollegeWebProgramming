@@ -1,0 +1,16 @@
+{
+  "name": "user-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Practical work 10: user registration and authorization",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.6"
+  }
+}

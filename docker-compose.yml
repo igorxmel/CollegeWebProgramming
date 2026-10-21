@@ -10,9 +10,9 @@
 # Порты 3307 и 8081 взяты специально: репозиторий баз данных занимает 3306 и
 # 8080, так что обе базы можно держать поднятыми одновременно.
 #
-# В initdb уходят только schema.sql и data.sql. Файл queries.sql не
-# подключается намеренно: запросы выполняются руками в окне Adminer, это и есть
-# смысл работы.
+# В initdb уходят schema.sql, data.sql и скрипты отдельных работ. Файл
+# queries.sql не подключается намеренно: запросы выполняются руками в окне
+# Adminer, это и есть смысл работы.
 
 services:
   db:
@@ -31,6 +31,7 @@ services:
       - "./Task 5th SQL Queries/Solution/schema.sql:/docker-entrypoint-initdb.d/05-1-schema.sql:ro"
       - "./Task 5th SQL Queries/Solution/data.sql:/docker-entrypoint-initdb.d/05-2-data.sql:ro"
       - "./Task 9th MySQL Connection/Solution/games_db.sql:/docker-entrypoint-initdb.d/09-games.sql:ro"
+      - "./Task 10th User Registration and Authorization/Solution/web_project.sql:/docker-entrypoint-initdb.d/10-web-project.sql:ro"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-proot"]
       interval: 5s

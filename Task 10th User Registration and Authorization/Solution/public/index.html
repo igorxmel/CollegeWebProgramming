@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Регистрация и авторизация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+    <span class="brand">web_project</span>
+    <span>Практическая работа №10</span>
+</header>
+
+<main class="page">
+    <section class="intro">
+        <h1>Регистрация и авторизация</h1>
+        <p>Создайте учетную запись, войдите в нее и посмотрите список пользователей.</p>
+    </section>
+
+    <p id="message" class="message" role="status"></p>
+
+    <div class="forms">
+        <section class="card">
+            <h2>Регистрация</h2>
+            <form id="register-form">
+                <label for="register-name">Имя</label>
+                <input id="register-name" name="name" type="text" autocomplete="name" required>
+
+                <label for="register-email">Email</label>
+                <input id="register-email" name="email" type="email" autocomplete="email" required>
+
+                <label for="register-password">Пароль</label>
+                <input id="register-password" name="password" type="password" autocomplete="new-password" required>
+
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Вход</h2>
+            <form id="login-form">
+                <label for="login-email">Email</label>
+                <input id="login-email" name="email" type="email" autocomplete="email" required>
+
+                <label for="login-password">Пароль</label>
+                <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+
+                <button type="submit">Войти</button>
+            </form>
+
+            <p id="token" class="token" hidden></p>
+        </section>
+    </div>
+
+    <section class="card users-card">
+        <div class="card-head">
+            <h2>Пользователи</h2>
+            <button id="refresh" type="button" class="secondary">Обновить</button>
+        </div>
+
+        <ul id="users" class="users"></ul>
+    </section>
+</main>
+
+<script src="main.js"></script>
+
+</body>
+</html>
