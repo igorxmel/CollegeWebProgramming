@@ -82,6 +82,7 @@ registerForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const data = Object.fromEntries(new FormData(registerForm));
+    data.consent = registerForm.elements.consent.checked;
 
     try {
         const result = await request("/register", {

@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const db = require("./db");
+const { db, initDatabase } = require("./db");
 
 const app = express();
 const PORT = 3000;
@@ -14,11 +14,17 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.post("/register", async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, consent } = req.body;
 
     if (!name || !email || !password) {
         return res.status(400).json({
             message: "Заполните все поля"
+        });
+    }
+
+    if (consent !== true) {
+        return res.status(400).json({
+            message: "Необходимо согласие на обработку персональных данных"
         });
     }
 
@@ -37,8 +43,8 @@ app.post("/register", async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         await db.query(
-            "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-            [name, email, hashedPassword]
+            "INSERT INTO users (name, email, password, consent) VALUES (?, ?, ?, ?)",
+            [name, email, hashedPassword, true]
         );
 
         res.status(201).json({
@@ -162,6 +168,9 @@ app.delete("/users/:id", async (req, res) => {
 
 async function start() {
     try {
+        await initDatabase();
+        console.log("База данных web_project и таблица users готовы");
+
         await db.query("SELECT 1");
         console.log("Подключение к MySQL установлено");
 
