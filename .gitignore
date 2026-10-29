@@ -18,3 +18,6 @@ desktop.ini
 *.tmp
 *.log
 ~$*
+
+# Vite build output
+dist/
