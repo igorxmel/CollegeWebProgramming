@@ -4,13 +4,20 @@
 
 ## Как запустить
 
-Нужны Node.js 22.12 или новее и MySQL. На колледжном ПК открыть phpMyAdmin
-в Open Server Panel и выполнить Solution/schema.sql на вкладке SQL.
-Скрипт создаёт необходимые таблицы в dream_sneakers.
+Нужны Node.js 22.12 или новее и Docker. Из корня CollegeWebProgramming запустить:
 
-В папке Solution скопировать .env.example в .env. Указать пользователя,
-пароль и порт MySQL из Open Server Panel. Задать пароль ADMIN_PASSWORD
-для входа в панель и случайный JWT_SECRET длиной от 32 символов.
+```powershell
+docker compose up -d --wait
+docker compose exec -T db mysql --default-character-set=utf8mb4 -uroot -proot -e "source /docker-entrypoint-initdb.d/17-dream-sneakers.sql"
+```
+
+При первом запуске MySQL создаёт таблицы автоматически. Вторая команда добавляет
+их в уже существующую базу и сохраняет данные. Adminer: http://localhost:8081,
+сервер `db`, учебный логин `root` и пароль `root`, база `dream_sneakers`.
+
+В папке `Solution` скопировать `.env.example` в `.env`. Подключение уже настроено
+на MySQL из Docker (`127.0.0.1:3307`). Заполнить `ADMIN_PASSWORD` для входа в панель
+и задать случайный `JWT_SECRET` длиной от 32 символов.
 
 ~~~powershell
 npm ci

@@ -32,6 +32,7 @@ services:
       - "./Task 5th SQL Queries/Solution/data.sql:/docker-entrypoint-initdb.d/05-2-data.sql:ro"
       - "./Task 9th MySQL Connection/Solution/games_db.sql:/docker-entrypoint-initdb.d/09-games.sql:ro"
       - "./Task 10th User Registration and Authorization/Solution/web_project.sql:/docker-entrypoint-initdb.d/10-web-project.sql:ro"
+      - "./Task 17th Fullstack Core Features/Solution/schema.sql:/docker-entrypoint-initdb.d/17-dream-sneakers.sql:ro"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-proot"]
       interval: 5s

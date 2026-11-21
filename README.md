@@ -82,10 +82,18 @@
 ## Как поднять базы
 
 В репозитории лежит `docker-compose.yml`, который поднимает MySQL 8 и Adminer. Нужен
-только Docker.
+Docker. Все практические работы ВП с базой данных используют этот Compose.
 
 ```bash
-docker compose up -d
+docker compose up -d --wait
+```
+
+При первом запуске Compose создаёт таблицы заявок, товаров и заказов для ВП-15–18
+в `dream_sneakers`. Если том MySQL уже существовал, применить схему вручную.
+Команда добавит таблицы и исходные товары, сохранив существующие записи:
+
+```powershell
+docker compose exec -T db mysql --default-character-set=utf8mb4 -uroot -proot -e "source /docker-entrypoint-initdb.d/17-dream-sneakers.sql"
 ```
 
 Дальше открыть http://localhost:8081. Сервер `db`, пользователь `root`, пароль `root`.

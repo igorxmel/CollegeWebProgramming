@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { timingSafeEqual } from "node:crypto";
 import { items } from "./src/data.js";
 
-const { DB_HOST = "127.0.0.1", DB_PORT = "3306", DB_USER, DB_PASSWORD = "", DB_NAME = "dream_sneakers", ADMIN_PASSWORD, JWT_SECRET } = process.env;
+const { DB_HOST = "127.0.0.1", DB_PORT = "3307", DB_USER, DB_PASSWORD = "", DB_NAME = "dream_sneakers", ADMIN_PASSWORD, JWT_SECRET } = process.env;
 if (!DB_USER || !ADMIN_PASSWORD || !JWT_SECRET || JWT_SECRET.length < 32) {
     throw new Error("Set DB_USER, ADMIN_PASSWORD and JWT_SECRET (at least 32 characters).");
 }
