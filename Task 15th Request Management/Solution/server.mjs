@@ -12,9 +12,16 @@ const pool = mysql.createPool({ host: DB_HOST, port: Number(DB_PORT), user: DB_U
 const app = express();
 app.use(express.json({ limit: "16kb" }));
 const statuses = ["new", "processing", "accepted", "rejected", "completed"];
+const adminCookie = "vp15_admin";
+const sessionMinutes = 30;
+const cookieOptions = req => ({ httpOnly: true, sameSite: "strict", secure: req.secure, path: "/api" });
+
 function admin(req, res, next) {
+    res.set("Cache-Control", "no-store");
+    const cookie = req.get("Cookie")?.split(";").map(value => value.trim())
+        .find(value => value.startsWith(adminCookie + "="));
     try {
-        const token = jwt.verify(req.get("Authorization")?.replace(/^Bearer /, "") ?? "", JWT_SECRET, { algorithms: ["HS256"] });
+        const token = jwt.verify(cookie?.slice(adminCookie.length + 1) ?? "", JWT_SECRET, { algorithms: ["HS256"] });
         if (token.role === "admin") return next();
     } catch {}
     res.status(401).json({ message: "Войдите как администратор." });
@@ -25,7 +32,13 @@ app.post("/api/login", (req, res) => {
     if (given.length !== expected.length || !timingSafeEqual(given, expected)) {
         return res.status(401).json({ message: "Неверный пароль." });
     }
-    res.json({ token: jwt.sign({ role: "admin" }, JWT_SECRET, { expiresIn: "30m", algorithm: "HS256" }) });
+    const token = jwt.sign({ role: "admin" }, JWT_SECRET, { expiresIn: sessionMinutes * 60, algorithm: "HS256" });
+    res.cookie(adminCookie, token, { ...cookieOptions(req), maxAge: sessionMinutes * 60 * 1000 });
+    res.sendStatus(204);
+});
+app.post("/api/logout", (req, res) => {
+    res.clearCookie(adminCookie, cookieOptions(req));
+    res.sendStatus(204);
 });
 function fields(body) {
     return ["name", "email", "phone", "topic", "message"].map(key => typeof body?.[key] === "string" ? body[key].trim() : "");
@@ -36,6 +49,9 @@ function valid([name, email, phone, topic, message]) {
         ["Подбор размера", "Наличие модели", "Доставка"].includes(topic) && message.length >= 10 && message.length <= 1000;
 }
 app.post("/api/requests", async (req, res) => {
+    if (req.body?.consent !== true) {
+        return res.status(400).json({ message: "Подтвердите согласие на обработку персональных данных." });
+    }
     const values = fields(req.body);
     if (!valid(values)) return res.status(400).json({ message: "Проверьте поля заявки." });
     const [result] = await pool.execute("INSERT INTO requests (name,email,phone,topic,message) VALUES (?,?,?,?,?)", values);

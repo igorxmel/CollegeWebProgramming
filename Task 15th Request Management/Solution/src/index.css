@@ -953,7 +953,27 @@ a.contact-item__value:hover {
 }
 
 .form__input::placeholder {
-    color: #a3a3ad;
+    color: #686872;
+}
+
+.request-form__label {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.request-form__consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: .9rem;
+    line-height: 1.5;
+}
+
+.request-form__consent input {
+    margin-top: .2em;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
 }
 
 .form__input:focus {
@@ -1234,6 +1254,20 @@ a.contact-item__value:hover {
 .management { padding-block: 44px; }
 .management > * + * { margin-top: 16px; }
 .management .form { max-width: 640px; }
+.management .button--outline-accent {
+    color: #9f133e;
+    border-color: #9f133e;
+}
+
+.management .button--outline-accent:hover {
+    background-color: #9f133e;
+    color: #fff;
+}
+
+.management .button--outline-accent:focus-visible {
+    outline: 2px solid #9f133e;
+    outline-offset: 3px;
+}
 .management .form label { display: grid; gap: 6px; }
 .management__list { display: grid; gap: 8px; }
 .management__list > li { padding: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); }
